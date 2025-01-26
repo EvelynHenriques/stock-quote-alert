@@ -7,10 +7,8 @@ using System.Threading;
 using Newtonsoft.Json.Linq; 
 
 
-class Program
-{
-    static async Task Main(string[] args)
-    {
+class Program{
+    static async Task Main(string[] args){
         if (args.Length != 3){
             Console.WriteLine("Faça o uso corretamente: stock-quote-alert.exe <ativo> <preço_de_referencia_para_venda> <preço_de_referencia_para_compra>");
             return;
@@ -31,6 +29,7 @@ class Program
         var stockService = new StockPriceService(config.ApiToken);
 
         Console.WriteLine($"\nMonitorando o ativo {ativo} considerando: \nPreço para venda: {salePrice}\nPreço para compra: {purchPrice}\n");
+        //LoadingBar(60000,6);
 
         while (true)
         {
@@ -41,26 +40,45 @@ class Program
                 if (precoAtual > salePrice)
                 {
                     await emailService.sendEmail($"Ação {ativo} - Alerta para venda",
-                        $"A cotação do ativo {ativo} aumentou para {precoAtual}. Aproveite para vender!");
+                        $"A cotação do ativo {ativo} subiu para {precoAtual}. Aproveite para vender!");
                 }
                 else if (precoAtual < purchPrice)
                 {
                     await emailService.sendEmail($"Ação {ativo} - Alerta para compra",
-                        $"A cotação do ativo {ativo} diminuiu para {precoAtual}. Aproveite para comprar!");
+                        $"A cotação do ativo {ativo} caiu para {precoAtual}. Aproveite para comprar!");
                 
+                }else{
+                    Console.WriteLine($"Não há sinais para venda ou compra desse ativo a partir dos níveis estipulados.");
                 }
             }
             catch(Exception e){
                 Console.WriteLine($"Erro no monitoramento do ativo {ativo}: {e.Message}");
     
             }
-            await Task.Delay(60000);
+            //Thread.Sleep(60000);
+            Console.WriteLine($"\nAguardando 30s para nova consulta.");
+            await LoadingBar(30000,20);
+            //await Task.Delay(60000);
+
+        }
+    }
+    static async Task LoadingBar(int time, int steps){
+        int interval = time/steps;
+        string bar = new string('-',steps);
+        //Console.WriteLine(bar);
+        
+
+        for(int i = 0; i<steps;i++){
+            bar = bar.Remove(i,1);
+            bar = bar.Insert(i,"#");
+            Console.Write($"\r[{bar}]");
+            
+            await Task.Delay(interval);
         }
     }
 }
 
-class SMTPConfiguration
-{
+class SMTPConfiguration{
     public string smtpServer{ get; set;}
     public int smtpPort{ get; set;}
     public string smtpUser{ get; set;}
@@ -161,7 +179,8 @@ class StockPriceService{
         try
             {
                 HttpResponseMessage response = await client.GetAsync(url);
-                //Console.WriteLine(response);
+                //Console.WriteLine($"response:\n{response}");
+
                 if(response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();

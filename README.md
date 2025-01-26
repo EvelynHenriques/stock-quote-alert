@@ -41,11 +41,11 @@ Ele será gerando em bin/Release/net6.0/win-x64/
 3. Execute o Programa
 Navegue até a pasta onde foi gerado o executável pelo terminal e execute
 ```plaintext
-stock-quote-alert.exe <ativo> <preço_de_referencia_para_venda> <preço_de_referencia_para_compra>
+.\stock-quote-alert.exe <ativo> <preço_de_referencia_para_venda> <preço_de_referencia_para_compra>
 ```
 Exemplo:
 ```plaintext
-stock-quote-alert.exe PETR4 22.67 22.59 
+.\stock-quote-alert.exe PETR4 22.67 22.59 
 ```
 
 ## Dependências
