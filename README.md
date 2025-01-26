@@ -19,9 +19,9 @@ Na raiz do projeto há um arquivo de configuração nomeado como "config.txt", n
 SMTPServer=smtp.gmail.com
 SMTPPort=587
 SMTPUser=seu_email@gmail.com
-SMTPPassword=sua_senha //procure utilizar uma senha de app
+SMTPPassword=sua_senha 
 EmailRecipient=destinatario@gmail.com
-ApiToken=seu_token_da_api //não há necessidade de alterar
+ApiToken=seu_token_da_api 
 ```
 
 No caso do Gmail, certifique-se de gerar uma senha de aplicativo para segurança. Além disso, o token da API foi disponibilizado para uso por tempo determinado então, caso necessário, considere adquirir credenciais da API para que seja possível fazer consultas de valores das cotações.
