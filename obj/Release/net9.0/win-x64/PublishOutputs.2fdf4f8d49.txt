@@ -1,0 +1,7 @@
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.exe
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\config.txt
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.dll
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.deps.json
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.runtimeconfig.json
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.pdb
+C:\Users\evely\stock-quote-alert\bin\Release\net9.0\win-x64\publish\Newtonsoft.Json.dll

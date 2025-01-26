@@ -1,0 +1,6 @@
+SMTPServer=smtp.gmail.com
+SMTPPort=587
+SMTPUser=evelynhenriques@gmail.com
+SMTPPassword=bwlomfkqvxxgjceo
+EmailRecipient=evelynhenriques@gmail.com
+ApiToken=8esA7r52aTYeK8BskrrE8F
